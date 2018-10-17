@@ -1,0 +1,239 @@
+<!doctype html>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <title>squarify | inj.ms</title>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no, user-scalable=no">
+        <meta name="HandheldFriendly" content="true">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-title" content="Squarify">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+        <style>
+            html,
+            body,
+            button {
+                background: #eeeeee;
+                font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+                margin: 0;
+                padding: 0;
+            }
+
+            html {
+                height: 100vh;
+            }
+
+            html,
+            body {
+                min-height: 100%;
+                -webkit-user-select: none;
+
+            }
+
+            body {
+                background: #333333;
+                display: flex;
+                flex-direction: column;
+                margin: auto;
+                max-width: 480px;
+            }
+
+            a {
+                color: #ffffff;
+            }
+
+            .hdr {
+                text-align: center;
+            }
+
+            .hdr__logo {
+                background: #333333;
+                color: rgba(255, 255, 255, 0.9);
+                display: inline-block;
+                font-weight: normal;
+                line-height: 1;
+                margin: 0;
+                padding: 0.25em 0.25em 0.5em 0.25em;
+                position: relative;
+                text-transform: lowercase;
+            }
+
+            .hdr__logo::before {
+                background: #e40492;
+                background: #15D4D3;
+                background: #14A1D9;
+                background: #BF048D;
+                background: #16F2F2;
+                background: #ffffff;
+                box-sizing: border-box;
+                content: " ";
+                display: inline-block;
+                height: 1.2em;
+                opacity: 0.15;
+                position: absolute;
+                right: 0.05em;
+                top: -0.05em;
+                vertical-align: middle;
+                width: 1.2em;
+                z-index: 10;
+            }
+
+            .hdr__logo span {
+                position: relative;
+                z-index: 100;
+            }
+
+            main {
+                flex: 1;
+            }
+
+            .canvas {
+                background: #ffffff;
+                box-sizing: border-box;
+                height: 100vw;
+                max-height: 480px;
+                max-width: 480px;
+                width: 100%;
+            }
+
+            .toolbar {
+                align-content: stretch;
+                align-items: stretch;
+                background: #999999;
+                border-radius: 0.25em;
+                display: flex;
+                justify-content: space-between;
+                margin: 0.25em 0.5em;
+                overflow: hidden;
+            }
+
+            .add-photo__input {
+                display: none;
+            }
+
+            .button {
+                background: #ffffff linear-gradient(to top, rgba(0,0,0,0.25) 0%,rgba(0,0,0,0) 100%);
+                border: 0 solid #111111;
+                box-sizing: border-box;
+                color: #000000;
+                cursor: pointer;
+                font-size: 1em;
+                padding: 1.25em 1em 1em 1em;
+                text-align: center;
+                text-decoration: none;
+                margin: 0;
+                width: 33%;
+            }
+
+            .button::before {
+                background-position: center center;
+                background-repeat: no-repeat;
+                background-size: contain;
+                content: " ";
+                display: block;
+                height: 2em;
+                margin: 0 auto 0.25em auto;
+                width: 2em;
+            }
+
+            .button--not-in-use {
+                background: #dddddd;
+                color: rgba(0, 0, 0, 0.6);
+                cursor: not-allowed;
+            }
+
+            .button--add-photo::before {
+                background-image: url("icons/upload.svg");
+            }
+
+            .button--download::before {
+                background-image: url("icons/download.svg");
+            }
+                .button--download.button--not-in-use::before {
+                    opacity: 0.5;
+                }
+
+            .buttton--rotate::before {
+                background-image: url("icons/rotate.svg");
+            }
+
+                .buttton--rotate.button--not-in-use::before {
+                    opacity: 0.5;
+                }
+
+            .add-photo__button::before {
+                padding: 0.5em;
+            }
+
+            .ftr {
+                color: rgba(255, 255, 255, 0.9);
+                text-align: center;
+            }
+
+            .ftr p {
+                font-size: 0.85em;
+            }
+
+            .vh {
+                border: 0;
+                clip: rect(0 0 0 0);
+                height: 1px;
+                margin: -1px;
+                overflow: hidden;
+                padding: 0;
+                position: absolute;
+                width: 1px;
+            }
+
+            .app .ftr {
+                padding-bottom: 1em;
+            }
+
+            .no-js .app-wrapper {
+                align-items: center;
+                display: flex;
+                justify-content: center;
+            }
+
+            .no-js .apologies {
+                background: goldenrod;
+                color: #111111;
+                font-size: 1.25em;
+                line-height: 1.5;
+                margin: 0 0 2em 0;
+                padding: 2em;
+            }
+
+        </style>
+        <script src="javascript/app.js" async></script>
+        <script src="javascript/squarify.js" async defer></script>
+        <script>
+            ((document, window, undefined) => {
+                const clss = window.navigator.standalone ? 'app' : 'not-an-app';
+                const html = document.getElementsByTagName('html')[0];
+                html.classList.add(clss);
+                html.classList.remove('no-js');
+                html.classList.add('js');
+            })(document, window)
+        </script>
+    </head>
+    <body>
+        <header class="hdr">
+            <h1 class="hdr__logo"><span>Squarify</span></h1>
+        </header>
+        <main id="app" class="app-wrapper">
+            <p class="apologies">Sorry, Squarify needs JavaScript enabled to run.</p>
+        </main>
+        <footer class="ftr">
+            <p><span role="presentation" aria-hidden="true">&lt;/&gt;</span><span class="vh">Made</span> by <a href="https://inj.ms">Ian</a>.</p>
+        </footer>
+        <script>
+            ((document, window, undefined) => {
+                document.querySelectorAll('.apologies').forEach( e => {
+                    e.parentElement.removeChild(e);
+                })
+            })(document, window)
+        </script>
+    </body>
+</html>

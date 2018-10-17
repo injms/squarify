@@ -1,0 +1,20 @@
+{
+  "name": "squarify",
+  "version": "0.1.0",
+  "description": "",
+  "main": "npm run build",
+  "scripts": {
+    "lt": "lt --port 8080",
+    "server": "node dev",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ian James, https://inj.ms",
+  "license": "MIT",
+  "devDependencies": {
+    "express": "^4.16.3",
+    "localtunnel": "^1.9.1"
+  },
+  "dependencies": {
+    "feather-icons": "^4.7.3"
+  }
+}
