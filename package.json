@@ -12,7 +12,7 @@
   "license": "MIT",
   "devDependencies": {
     "express": "^4.16.3",
-    "localtunnel": "^1.9.1"
+    "localtunnel": "^2.0.0"
   },
   "dependencies": {
     "feather-icons": "^4.7.3"
