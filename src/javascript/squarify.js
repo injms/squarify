@@ -126,7 +126,7 @@ const drawImage = ({image}) => {
 
 	// Convert the canvas to a encoded dataURL to add to the download link.
 	dataURL = canvas.toDataURL();
-	// document.getElementById('target-link').download = 'borders--' + filename;
+	document.getElementById('target-link').download = 'borders--' + filename;
 	document.getElementById('target-link').href = dataURL;
 }
 
