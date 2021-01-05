@@ -11,8 +11,7 @@
   "author": "Ian James, https://inj.ms",
   "license": "MIT",
   "devDependencies": {
-    "express": "^4.16.3",
-    "localtunnel": "^2.0.0"
+    "express": "^4.16.3"
   },
   "dependencies": {
     "feather-icons": "^4.7.3"
