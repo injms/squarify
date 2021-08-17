@@ -1,18 +1,13 @@
 {
   "name": "squarify",
-  "version": "0.1.0",
-  "description": "",
-  "main": "npm run build",
+  "version": "0.2.0",
+  "description": "A tiny web app thing to add borders to an image to make it square.",
   "scripts": {
-    "lt": "lt --port 8080",
-    "server": "node dev",
+    "start": "netlify dev",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Ian James, https://inj.ms",
-  "license": "MIT",
-  "devDependencies": {
-    "express": "^4.16.3"
-  },
+  "license": "Hippocratic 2.1",
   "dependencies": {
     "feather-icons": "^4.7.3"
   }
