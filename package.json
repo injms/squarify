@@ -9,6 +9,6 @@
   "author": "Ian James, https://inj.ms",
   "license": "Hippocratic 2.1",
   "dependencies": {
-    "feather-icons": "^4.7.3"
+    "feather-icons": "^4.29.0"
   }
 }
