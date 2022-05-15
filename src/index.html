@@ -35,7 +35,6 @@
                 display: flex;
                 flex-direction: column;
                 margin: auto;
-                max-width: 480px;
             }
 
             a {
@@ -78,8 +77,10 @@
                 z-index: 100;
             }
 
-            main {
+            .app-wrapper {
                 flex: 1;
+                max-width: 480px;
+                margin: auto;
             }
 
             .canvas {
@@ -97,7 +98,7 @@
                 background: #999999;
                 border-radius: 0.25em;
                 display: flex;
-                justify-content: space-between;
+                gap: 0;
                 margin: 0.25em 0.5em;
                 overflow: hidden;
             }
@@ -108,7 +109,7 @@
 
             .button {
                 background: #ffffff linear-gradient(to top, rgba(0,0,0,0.25) 0%,rgba(0,0,0,0) 100%);
-                border: 0 solid #111111;
+                border: 1px solid rgba(0, 0, 0, 0.1);
                 box-sizing: border-box;
                 color: #000000;
                 cursor: pointer;
@@ -117,7 +118,10 @@
                 text-align: center;
                 text-decoration: none;
                 margin: 0;
-                width: 33%;
+                width: 25%;
+
+                display: flex;
+                flex-direction: column;
             }
 
             .button::before {
@@ -153,6 +157,13 @@
             }
 
                 .buttton--rotate.button--not-in-use::before {
+                    opacity: 0.5;
+                }
+
+            .buttton--background-colour::before {
+                background-image: url("icons/frame.svg");
+            }
+                .buttton--background-colour.button--not-in-use::before {
                     opacity: 0.5;
                 }
 
@@ -216,11 +227,8 @@
             <h1 class="hdr__logo"><span>Squarify</span></h1>
         </header>
         <main id="app" class="app-wrapper">
-            <p class="apologies">Sorry, Squarify needs JavaScript enabled to run.</p>
+            <p class="apologies">Sorry - Squarify needs JavaScript enabled to run.</p>
         </main>
-        <footer class="ftr">
-            <p><span role="presentation" aria-hidden="true">&lt;/&gt;</span><span class="vh">Made</span> by <a href="https://inj.ms">Ian</a>.</p>
-        </footer>
         <script>
             ((document, window, undefined) => {
                 document.querySelectorAll('.apologies').forEach( e => {
@@ -228,5 +236,8 @@
                 })
             })(document, window)
         </script>
+        <footer class="ftr">
+            <p><span role="presentation" aria-hidden="true">&lt;/&gt;</span><span class="vh">Made</span> by <a href="https://inj.ms">Ian</a>.</p>
+        </footer>
     </body>
 </html>
