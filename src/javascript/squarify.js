@@ -27,6 +27,7 @@ createToolbar.appendChild(createFileButton)
 const rotateLink = document.createElement('button')
 rotateLink.id = 'rotate-clockwise'
 rotateLink.className = 'button buttton--rotate button--not-in-use'
+rotateLink.disabled = true
 rotateLink.appendChild(document.createTextNode('Rotate'))
 createToolbar.appendChild(rotateLink)
 
@@ -35,6 +36,28 @@ rotateLink.addEventListener('click', (event) => {
 
 	rotation = rotation >= 270 ? 0 : rotation + 90
 
+	drawImage({ image })
+})
+
+const backgroundColourLabel = document.createElement('label')
+backgroundColourLabel.setAttribute('for', 'change-background-colour')
+backgroundColourLabel.className = 'button buttton--background-colour button--not-in-use'
+backgroundColourLabel.appendChild(document.createTextNode('Frame colour'))
+createToolbar.appendChild(backgroundColourLabel)
+
+const backgroundColourInput = document.createElement('input')
+backgroundColourInput.id = 'change-background-colour'
+backgroundColourInput.className = 'add-photo__input'
+backgroundColourInput.type = 'color'
+backgroundColourInput.disabled = 'true'
+createToolbar.appendChild(backgroundColourInput)
+
+backgroundColourInput.addEventListener('input', (event) => {
+	console.log(event.target.value)
+	if (event.target.disabled) return
+
+	backgroundColour = event.target.value ? event.target.value : '#f2aa3b'
+	console.log({backgroundColour})
 	drawImage({ image })
 })
 
@@ -55,11 +78,33 @@ const reader = new FileReader()
 let filename
 let rotation = 0
 let dataURL
+let backgroundColour = '#ffffff'
 
 ctx.canvas.width  = (window.innerWidth >= 480) ? 480 : window.innerWidth
 ctx.canvas.height = (window.innerWidth >= 480) ? 480 : window.innerWidth
 
+const setupImage = () => {
+	const setupDimension = 100
+	// All clear please.
+	ctx.clearRect(0, 0, canvas.width, canvas.height)
+
+	// Set up the canvas.
+	ctx.canvas.width = setupDimension
+	ctx.canvas.height = setupDimension
+
+	// Draw a white background.
+	ctx.rect(0, 0, setupDimension, setupDimension)
+
+	// TODO: make this background colour user editable.
+	// TODO: make this colour selectable from the image itself with a colour
+	// picker.
+	ctx.fillStyle = backgroundColour
+	ctx.fill()
+}
+
 const drawImage = ({image}) => {
+
+
 	const whichIsTheLongestSide = (image.width >= image.height) ? image.width : image.height
 
 	// Safari on iOS won't render a canvas if it exceeds maximum limit of
@@ -99,7 +144,7 @@ const drawImage = ({image}) => {
 	// TODO: make this background colour user editable.
 	// TODO: make this colour selectable from the image itself with a colour
 	// picker.
-	ctx.fillStyle = '#ffffff'
+	ctx.fillStyle = backgroundColour
 	ctx.fill()
 
 	// When rotating the image, we need to rejig the canvas a bit with
@@ -124,6 +169,11 @@ const drawImage = ({image}) => {
 reader.addEventListener('load', () => {
 	image.src = reader.result
 
+	document.querySelectorAll('[disabled]')
+		.forEach( (obj) => {
+			obj.removeAttribute('disabled')
+		})
+
 	document.querySelectorAll('.button--not-in-use')
 		.forEach( (obj) => {
 			obj.classList.remove('button--not-in-use')
@@ -138,3 +188,5 @@ fileUploadr.addEventListener('change', (event) => {
 image.addEventListener('load', () => {
 	drawImage({ image })
 })
+
+setupImage()
