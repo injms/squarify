@@ -8,7 +8,7 @@
   },
   "author": "Ian James, https://inj.ms",
   "license": "Hippocratic 2.1",
-  "dependencies": {
-    "feather-icons": "^4.29.0"
+  "devDependencies": {
+    "netlify-cli": "^10.3.1"
   }
 }
