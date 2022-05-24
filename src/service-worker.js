@@ -7,6 +7,7 @@ const precache = () => {
         './icons/download.svg',
         './icons/rotate.svg',
         './icons/upload.svg',
+        './icons/frame.svg',
         './javascript/app.js',
         './javascript/squarify.js'
       ]);
