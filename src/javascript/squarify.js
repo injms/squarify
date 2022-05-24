@@ -56,8 +56,7 @@ backgroundColourInput.addEventListener('input', (event) => {
 	console.log(event.target.value)
 	if (event.target.disabled) return
 
-	backgroundColour = event.target.value ? event.target.value : '#f2aa3b'
-	console.log({backgroundColour})
+	backgroundColour = event.target.value ? event.target.value : '#ffffff'
 	drawImage({ image })
 })
 
