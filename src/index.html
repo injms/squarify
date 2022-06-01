@@ -104,24 +104,34 @@
             }
 
             .add-photo__input {
-                display: none;
+                bottom: 0;
+                clip-path: inset(50%);
+                clip: rect(0 0 0 0);
+                height: 1px;
+                left: 50%;
+                margin: 0;
+                overflow: hidden;
+                position: absolute;
+                white-space: nowrap;
+                width: 1px;
             }
 
             .button {
+                align-items: center;
                 background: #ffffff linear-gradient(to top, rgba(0,0,0,0.25) 0%,rgba(0,0,0,0) 100%);
                 border: 1px solid rgba(0, 0, 0, 0.1);
                 box-sizing: border-box;
                 color: #000000;
                 cursor: pointer;
-                font-size: 1em;
-                padding: 1.25em 1em 1em 1em;
-                text-align: center;
-                text-decoration: none;
-                margin: 0;
-                width: 25%;
-
                 display: flex;
                 flex-direction: column;
+                font-size: 1em;
+                margin: 0;
+                padding: 1.25em 0.5em 1em 0.5em;
+                position: relative;
+                text-align: center;
+                text-decoration: none;
+                width: 25%;
             }
 
             .button::before {

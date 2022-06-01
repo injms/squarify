@@ -50,14 +50,13 @@ backgroundColourInput.id = 'change-background-colour'
 backgroundColourInput.className = 'add-photo__input'
 backgroundColourInput.type = 'color'
 backgroundColourInput.disabled = 'true'
-createToolbar.appendChild(backgroundColourInput)
+backgroundColourLabel.appendChild(backgroundColourInput)
 
 backgroundColourInput.addEventListener('input', (event) => {
 	console.log(event.target.value)
 	if (event.target.disabled) return
 
-	backgroundColour = event.target.value ? event.target.value : '#f2aa3b'
-	console.log({backgroundColour})
+	backgroundColour = event.target.value ? event.target.value : '#ffffff'
 	drawImage({ image })
 })
 
