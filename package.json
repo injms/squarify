@@ -9,6 +9,6 @@
   "author": "Ian James, https://inj.ms",
   "license": "Hippocratic 2.1",
   "devDependencies": {
-    "netlify-cli": "^13.2.2"
+    "netlify-cli": "^15.0.3"
   }
 }
