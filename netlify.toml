@@ -4,7 +4,6 @@
 [[headers]]
   for = "/*"
   [headers.values]
-    Expect-CT = "max-age=0, report-uri='https://injms.report-uri.com/r/d/ct/reportOnly'"
     Referrer-Policy = "strict-origin-when-cross-origin"
     X-Content-Type-Options = "nosniff"
     X-Frame-Options = "DENY"
